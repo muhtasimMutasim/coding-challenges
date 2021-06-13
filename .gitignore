@@ -1,0 +1,39 @@
+# Java files
+.idea/*
+*/.idea/
+
+# Mac files
+.DS_Store
+*.DS_Store
+**/.DS_Store
+
+# target directory
+
+target/dependency
+target/dependency/
+target/dependency/*
+
+target/generated-sources
+target/generated-sources/
+target/generated-sources/*
+target/generated-test-sources
+target/generated-test-sources/
+target/generated-test-sources/*
+
+target/maven-archiver
+target/maven-archiver/
+target/maven-archiver/*
+
+target/maven-status
+target/maven-status/
+target/maven-status/*
+
+target/surefire-reports
+target/surefire-reports/
+target/surefire-reports/*
+
+target/test-classes
+target/test-classes/
+target/test-classes/*
+target/*.jar
+## End of java files
