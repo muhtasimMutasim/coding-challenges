@@ -1,1 +1,0 @@
-../../leetcode/database/second_highest_salary.sql
