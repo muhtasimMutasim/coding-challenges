@@ -1,0 +1,1 @@
+../../leetcode/database/employees_earning_more_than_managers.sql
