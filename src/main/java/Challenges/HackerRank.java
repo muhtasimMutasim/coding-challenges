@@ -60,7 +60,7 @@ public class HackerRank {
     }
 
 
-/* ----------------------------- diagonalDifference (Start)  ------------------------------------- */
+/* ----------------------------- diagonalDifference (Start) ------------------------------------- */
 
     /*
      * Complete the 'diagonalDifference' function below.
@@ -89,7 +89,6 @@ public class HackerRank {
             leftToRight.getAndAdd(1);
             rightToLeft.decrementAndGet();
         });
-
         int result = Math.abs( ld.get() - rd.get() );
         return result;
     }
@@ -136,6 +135,54 @@ public class HackerRank {
 /* ----------------------------- Simple Sum Array (End)  ------------------------------------- */
 
 
+/* ------------------------------ Min Max Sum () ----------------------------------------------- */
+
+    public static void miniMaxSum(List<Integer> arr) {
+        // Write your code here
+        if (arr.contains(0)) { // remove 0 if they exist
+            arr.removeIf(integer -> integer.equals(0));
+        }
+        // Converts input List to Array to deal with numbers larger than 32 bits
+        long[] new_arr = new long[5];
+        new_arr = arr.stream().mapToLong(l -> l).toArray();
+        // Created long arrays with single indexes for stream lambda.
+        final long[] highest = {0};
+        final long[] lowest = {0};
+        // Storing maximum and minimum values
+        long max = Arrays.stream(new_arr).max().getAsLong();
+        long min = Arrays.stream(new_arr).min().getAsLong();
+        // max_dup and min_dup are arrays with single indexes that account for duplicates
+        final int[] max_dup = {0};
+        final int[] min_dup = {0};
+
+        // Streaming Lambda function that adds values to highest and lowest variables.
+        Arrays.stream(new_arr).forEach( (num) -> {
+            if (num != min || min_dup[0] >= 1) {
+                highest[0] += num;
+            } else { min_dup[0] += 1; }
+            if (num != max || max_dup[0] >= 1) {
+                lowest[0] += num;
+            } else { max_dup[0] += 1; }
+           });
+
+        System.out.println(lowest[0] + " " + highest[0]);
+    }
+
+
+    public static void minMaxSumTest() {
+        // Write your code here
+
+        List<Integer> t1 = Arrays.asList(11, 2, 3, 4, 5);
+
+        miniMaxSum(t1);
+
+    }
+
+
+
+
+/* ------------------------------ Min Max Sum () ----------------------------------------------- */
+
 
     public static void warmUpHackerRank() {
 
@@ -144,7 +191,8 @@ public class HackerRank {
         //balancedStringSplitMain();
         //warmUp();
         //simpleArrayTest();
-        diagonalDifferenceTests();
+        //diagonalDifferenceTests();
+        minMaxSumTest();
 
         // Insert Test Cases Here (End)
     }
